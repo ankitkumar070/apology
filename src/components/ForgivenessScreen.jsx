@@ -11,11 +11,11 @@ const sorryMessages = [
   "I messed up, but I love you so much 💕😔",
   "Life isn't the same without your smile 😢💖",
   "I promise to be better for you 🌟❤️",
-  "Forgive me please? I'll buy you ice cream 🍦💕",
+  "Forgive me please? I'll buy you mint chocolate and ice cream 🍦💕",
   "I'm so so so sorry  😭❤️",
   "You deserve the world and I'll give it to you 🌹💖",
   "Pretty please with a cherry on top? 🍒🥺",
-  "I'll never let you down again, I promise 💍❤️",
+  "I'll never let you down again, I promise ❤️",
 ];
 
 const heartEmojis = ["❤️", "💖", "💕", "💗", "💝", "🥰", "😍"];

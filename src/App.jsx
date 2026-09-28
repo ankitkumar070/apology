@@ -8,6 +8,8 @@ import FinalScreen from "./components/FinalScreen";
 import ForgivenessScreen from "./components/ForgivenessScreen";
 import EntryScreen from "./components/EntryScreen";
 import { verifyAccess } from "./utils/verifyAccess";
+import MusicPlayer from "./components/MusicPlayer";
+import img1 from "./assets/images/img1.png";
 
 function App() {
   const [current, setCurrent] = useState(0);
@@ -69,6 +71,12 @@ function App() {
 {showForgiveness && (
   <ForgivenessScreen onNext={replay}/>
 )}
+<MusicPlayer
+  src={`${import.meta.env.BASE_URL}music/drop-dead.mp3`}
+  title="Drop dead"
+  subtitle="♡ Kiss me, and I might drop dead ♡"
+  cover={img1}
+/>
     </div>
   );
 }

@@ -50,6 +50,8 @@ export default function EntryScreen({ onSuccess, verifyAccess }) {
 
           <p className="mt-4 text-lg text-gray-600">
             Come in... I have something for you 🤍
+            <br />
+            plug in your headphones and get ready for a little surprise 🎶
           </p>
         </div>
       </div>

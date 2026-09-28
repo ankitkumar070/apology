@@ -8,7 +8,10 @@ import img6 from "../assets/images/withflowers.jpeg";
 export const story = [
   {
     image: img1,
-    text: "Hiiii Tanwi, Just wanted to tell you somethingggg...",
+    text: `Hiiii Tanwi, Just wanted to tell you somethingggg...
+    Teri surat se hai aalam mein baharon ko sabat,
+teri ankhon ke siva duniya mein rakkha kya hai`
+,
   },
   {
     image: img2,
@@ -20,7 +23,7 @@ export const story = [
   },
   {
     image: img4,
-    text: "My safest place 😌",
+    text: "My safest place 😌....This picture will stay etched in the endocardium of my heart forever. ❤️",
   },
 //    {
 //     image: img5,
