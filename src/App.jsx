@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { story } from "./data/story";
 import Frame from "./components/Frame";
 import Navbar from "./components/Navbar";
@@ -10,6 +10,7 @@ import EntryScreen from "./components/EntryScreen";
 import { verifyAccess } from "./utils/verifyAccess";
 import MusicPlayer from "./components/MusicPlayer";
 import img1 from "./assets/images/img1.png";
+import { logAction } from "./utils/logger";
 
 function App() {
   const [current, setCurrent] = useState(0);
@@ -19,6 +20,18 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
   sessionStorage.getItem("apology_access") === "true"
 );
+useEffect(() => {
+  logAction("website_opened");
+}, []);
+useEffect(() => {
+  if (!isAuthenticated || showQuestion || showFinal || showForgiveness) {
+    return;
+  }
+
+  logAction("story_frame_viewed", {
+    frame: current + 1,
+  });
+}, [current, isAuthenticated, showQuestion, showFinal, showForgiveness]);
   const replay = () => {
     setCurrent(0);
     setShowQuestion(false);
@@ -50,12 +63,17 @@ function App() {
           image={story[current].image}
           text={story[current].text}
           onNext={() => {
-            if (current === story.length - 1) {
-              setShowQuestion(true);
-            } else {
-              setCurrent((p) => p + 1);
-            }
-          }}
+  logAction("story_next_clicked", {
+    fromFrame: current + 1,
+    toFrame: current === story.length - 1 ? "question" : current + 2,
+  });
+
+  if (current === story.length - 1) {
+    setShowQuestion(true);
+  } else {
+    setCurrent((p) => p + 1);
+  }
+}}
         />
       )}
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { logAction } from "../utils/logger";
 
 export default function EntryScreen({ onSuccess, verifyAccess }) {
   const [date, setDate] = useState("");
@@ -8,6 +9,7 @@ export default function EntryScreen({ onSuccess, verifyAccess }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await logAction("access_attempt");
 
     if (!date) {
       setError("You forgot to enter your birthday 🥺");
@@ -21,12 +23,14 @@ export default function EntryScreen({ onSuccess, verifyAccess }) {
       const isValid = await verifyAccess(date);
 
       if (isValid) {
+          await logAction("access_granted");
         setSuccess(true);
 
         setTimeout(() => {
           onSuccess();
         }, 3000);
       } else {
+         await logAction("access_denied");
         setError("Hmmmm... I don't think that's right 🥺");
         setDate("");
       }

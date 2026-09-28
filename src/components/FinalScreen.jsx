@@ -47,6 +47,7 @@
 
 // export default FinalScreen;
 import { useState } from "react";
+import { logAction } from "../utils/logger";
 
 const FinalScreen = ({ onNext }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,7 +81,7 @@ const FinalScreen = ({ onNext }) => {
           <div className="flex flex-col items-center justify-center h-[270px]">
 
             <button
-              onClick={() => setIsOpen(true)}
+              onClick={() => {logAction("envelope_opened"); setIsOpen(true);}}
               className="group w-20 h-20 rounded-full
                          bg-white shadow-xl
                          flex flex-col items-center justify-center
