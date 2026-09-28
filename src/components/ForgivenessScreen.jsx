@@ -246,7 +246,7 @@ const ForgivenessScreen = ({ onNext }) => {
               You don't owe me forgiveness, an explanation, or even a reply.
               <br />
               <br />
-              Take all the time you need. 🤍
+              Take all the time you need but please comeback. 🤍
             </p>
              <button
               onClick={onNext}
@@ -270,16 +270,16 @@ const ForgivenessScreen = ({ onNext }) => {
           <div className="animate-fadeIn">
             <div className="text-6xl mb-6">🤍🦋</div>
             <h2 className="text-3xl font-bold text-rose-500 mb-6">
-              Just kidding...
+              Thankyou so muchhhh...
             </h2>
             <p className="text-xl leading-relaxed text-gray-600">
-              Take your time.
+              But I want u to take your time.
               <br />
               <br />
               I don't want to force you to forgive me.
               <br />
               <br />
-              You don't have to forgive me just because I asked. 🤍
+              You don't have to forgive me just because I asked. Take care, I miss you so much🤍
             </p>
             <button
               onClick={onNext}
