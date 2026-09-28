@@ -5,16 +5,18 @@ import Navbar from "./components/Navbar";
 import FloatingElements from "./components/FloatingElements";
 import Question from "./components/Question";
 import FinalScreen from "./components/FinalScreen";
+import ForgivenessScreen from "./components/ForgivenessScreen";
 
 function App() {
   const [current, setCurrent] = useState(0);
   const [showQuestion, setShowQuestion] = useState(false);
   const [showFinal, setShowFinal] = useState(false);
-
+  const [showForgiveness, setShowForgiveness] = useState(false);
   const replay = () => {
     setCurrent(0);
     setShowQuestion(false);
     setShowFinal(false);
+    setShowForgiveness(false);
   };
 
   return (
@@ -42,7 +44,14 @@ function App() {
         <Question onYes={() => setShowFinal(true)} />
       )}
 
-      {showFinal && <FinalScreen onReplay={replay} />}
+      {/* {showFinal && <FinalScreen onReplay={replay} />} */}
+      {showFinal && !showForgiveness && (
+  <FinalScreen onNext={() => setShowForgiveness(true)} />
+)}
+
+{showForgiveness && (
+  <ForgivenessScreen onNext={replay}/>
+)}
     </div>
   );
 }

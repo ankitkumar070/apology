@@ -25,3 +25,550 @@
   animation-iteration-count: infinite;
   opacity: 0.5;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(244, 114, 182, 0.08);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(244, 114, 182, 0.4);
+  border-radius: 10px;
+}
+
+/* ================================================= */
+/* FORGIVENESS SCREEN */
+/* ================================================= */
+
+.forgiveness-screen {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    #e73c7e,
+    #ff69b4,
+    #ff1493,
+    #ff69b4,
+    #e73c7e
+  );
+
+  background-size: 400% 400%;
+  animation: forgivenessGradient 8s ease infinite;
+
+  overflow: hidden;
+  position: relative;
+
+  font-family:
+    "Comic Sans MS",
+    "Comic Sans",
+    cursive;
+}
+
+@keyframes forgivenessGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Background hearts */
+
+.forgiveness-bg-heart {
+  position: fixed;
+  font-size: 2em;
+  opacity: 0.15;
+
+  animation:
+    forgivenessFloatAround
+    15s
+    ease-in-out
+    infinite;
+
+  pointer-events: none;
+  color: white;
+}
+
+@keyframes forgivenessFloatAround {
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translate(100px, -100px)
+      rotate(90deg);
+  }
+
+  50% {
+    transform:
+      translate(200px, 50px)
+      rotate(180deg);
+  }
+
+  75% {
+    transform:
+      translate(-50px, -50px)
+      rotate(270deg);
+  }
+}
+
+
+/* Main card */
+
+.forgiveness-container {
+  text-align: center;
+
+  padding: 50px 40px;
+
+  background: rgba(255, 255, 255, 0.98);
+
+  border-radius: 35px;
+
+  box-shadow:
+    0 25px 70px
+    rgba(255, 105, 180, 0.5);
+
+  max-width: 650px;
+  width: 90%;
+
+  animation:
+    forgivenessFloatIn
+    1s
+    ease-out;
+
+  border:
+    3px solid
+    rgba(255, 105, 180, 0.3);
+
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes forgivenessFloatIn {
+  from {
+    opacity: 0;
+    transform:
+      translateY(-50px)
+      scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* Main message */
+
+.forgiveness-main-text {
+  font-size: 2.8em;
+
+  color: #e73c7e;
+
+  margin-bottom: 50px;
+
+  font-weight: bold;
+
+  text-shadow:
+    3px 3px 6px
+    rgba(255, 105, 180, 0.3);
+
+  animation:
+    forgivenessPulse
+    2s
+    ease-in-out
+    infinite;
+
+  line-height: 1.5;
+}
+
+@keyframes forgivenessPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+
+/* Buttons container */
+
+.forgiveness-buttons {
+  display: flex;
+
+  gap: 25px;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 20px;
+
+  min-height: 200px;
+
+  align-items: center;
+
+  position: relative;
+
+  padding: 20px;
+}
+
+
+/* Common button */
+
+.forgiveness-buttons button {
+  font-family:
+    "Comic Sans MS",
+    "Comic Sans",
+    cursive;
+
+  font-size: 1.4em;
+
+  padding: 20px 40px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  transition:
+    all 0.3s ease;
+
+  box-shadow:
+    0 8px 25px
+    rgba(0, 0, 0, 0.2);
+}
+
+
+/* YES */
+
+.forgiveness-yes {
+  background:
+    linear-gradient(
+      135deg,
+      #ff69b4,
+      #ff1493
+    );
+
+  color: white;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+.forgiveness-yes:hover {
+  transform:
+    translateY(-8px)
+    scale(1.1) !important;
+
+  box-shadow:
+    0 15px 40px
+    rgba(255, 20, 147, 0.5);
+}
+
+
+/* NO */
+
+.forgiveness-no {
+  background:
+    linear-gradient(
+      135deg,
+      #ffb6c1,
+      #ff69b4
+    );
+
+  color: white;
+
+  position: absolute;
+
+  transition:
+    all 0.15s ease-out;
+
+  z-index: 10;
+}
+
+.forgiveness-no:hover {
+  transform:
+    translate(-50%, -50%)
+    scale(1.05);
+}
+
+
+/* Celebration */
+
+.forgiveness-emojis {
+  font-size: 3.5em;
+
+  margin-top: 30px;
+
+  animation:
+    forgivenessBounce
+    1s
+    ease
+    infinite;
+
+  letter-spacing: 10px;
+}
+
+@keyframes forgivenessBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+
+/* Attempt text */
+
+.forgiveness-click-count {
+  margin-top: 20px;
+
+  font-size: 1.1em;
+
+  color: #e73c7e;
+
+  font-weight: bold;
+
+  min-height: 30px;
+}
+
+
+/* Shake */
+
+.forgiveness-shake {
+  animation:
+    forgivenessShake
+    0.5s;
+}
+
+@keyframes forgivenessShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform:
+      translateX(-10px)
+      rotate(-5deg);
+  }
+
+  75% {
+    transform:
+      translateX(10px)
+      rotate(5deg);
+  }
+}
+
+
+/* Floating hearts */
+
+.apology-heart {
+  position: fixed;
+
+  font-size: 2.5em;
+
+  animation:
+    apologyFloatUp
+    4s
+    ease-in-out;
+
+  pointer-events: none;
+
+  z-index: 1000;
+}
+
+@keyframes apologyFloatUp {
+  0% {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateY(-1000px)
+      rotate(360deg);
+  }
+}
+
+
+/* Sparkles */
+
+.apology-sparkle {
+  position: fixed;
+
+  width: 10px;
+  height: 10px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  animation:
+    apologySparkle
+    1s
+    ease-out
+    forwards;
+
+  z-index: 999;
+}
+
+@keyframes apologySparkle {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+
+/* AAGE */
+
+.forgiveness-next {
+  margin-top: 35px;
+
+  padding: 15px 40px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff69b4,
+      #ff1493
+    );
+
+  color: white;
+
+  font-family:
+    "Comic Sans MS",
+    "Comic Sans",
+    cursive;
+
+  font-size: 1.3rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px
+    rgba(255, 20, 147, 0.3);
+
+  transition:
+    all 0.3s ease;
+}
+
+.forgiveness-next:hover {
+  transform:
+    translateY(-5px)
+    scale(1.08);
+
+  box-shadow:
+    0 15px 35px
+    rgba(255, 20, 147, 0.45);
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+  .forgiveness-container {
+    padding: 40px 25px;
+  }
+
+  .forgiveness-main-text {
+    font-size: 2em;
+  }
+
+  .forgiveness-buttons {
+    min-height: 350px;
+
+    flex-direction: column;
+  }
+
+  .forgiveness-buttons button {
+    font-size: 1.2em;
+
+    padding:
+      16px 30px;
+  }
+
+  .forgiveness-emojis {
+    font-size: 2.5em;
+
+    letter-spacing: 5px;
+  }
+
+  .forgiveness-click-count {
+    font-size: 1em;
+  }
+}
